@@ -1,12 +1,12 @@
-from src.subtitle_translator import infinitum
+from src import subtitle_translator
 
-
-
-def test_infinitum():
+def test_subtitle_translator():
     """
-        Tests the infinite random number generator.
+        Tests the project.
     """
+    # subtitle_translator.main
 
-    for random in infinitum():
-        assert type(random) == int
-        break
+    pass
+
+
+
