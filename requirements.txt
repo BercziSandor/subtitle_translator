@@ -1,5 +1,5 @@
 pytest~=7.0.1
 deep-translator
-subtitle_parser~=1.0.1
+sublib~=1.1.0
 
 
