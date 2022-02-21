@@ -1,4 +1,4 @@
-from python_project_template import infinitum
+from src.subtitle_translator import infinitum
 
 
 
