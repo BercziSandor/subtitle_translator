@@ -37,4 +37,4 @@ def test_subtitle_translator():
     assert translate_array(texts=inp,
                            target_language='hu') == outp
 
-    translate_subtitle_file(input=sample_file)
+    # translate_subtitle_file(input=sample_file)
