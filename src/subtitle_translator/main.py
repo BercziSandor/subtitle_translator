@@ -16,8 +16,9 @@ import sublib
 try:
     from deep_translator import GoogleTranslator
 except requests.exceptions.ProxyError as e:
-    print("Error initiating Google Translator: " + str(e.args[0].reason.original_error) + ". "
-                                                                                          "Aborting")
+    logging.error("Error initiating Google Translator: " + str(e.args[0].reason.original_error) +
+                  ". "
+                  "Aborting")
     sys.exit(0)
 
 proxy = os.environ.get('HTTP_PROXY', os.environ.get('http_proxy', ''))
