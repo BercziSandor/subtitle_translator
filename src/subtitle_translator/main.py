@@ -10,8 +10,15 @@ from datetime import timedelta
 from pathlib import Path
 from typing import List
 
+import requests
 import sublib
-from deep_translator import GoogleTranslator
+
+try:
+    from deep_translator import GoogleTranslator
+except requests.exceptions.ProxyError as e:
+    print("Error initiating Google Translator: " + str(e.args[0].reason.original_error) + ". "
+                                                                                          "Aborting")
+    sys.exit(0)
 
 proxy = os.environ.get('HTTP_PROXY', os.environ.get('http_proxy', ''))
 proxies = {
@@ -43,8 +50,9 @@ def translate_array(texts, source_language='auto', target_language='hu'):
 
         if text.isdigit() or all(i in string.punctuation for i in text):
             texts[i] += " zzz "
-    retval = GoogleTranslator(source=source_language, target=target_language,
-                              proxies=proxies).translate_batch(texts)
+    gt = GoogleTranslator(source=source_language, target=target_language,
+                          proxies=proxies)
+    retval = gt.translate_batch(texts)
     return retval
 
 
@@ -182,7 +190,5 @@ if __name__ == "__main__":
 
     logging.basicConfig(level=logging.INFO)
     translate_subtitle_file(input='input/1.srt')
-
-
 
     pass
