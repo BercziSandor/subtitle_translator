@@ -1,5 +1,5 @@
 pytest~=7.0.1
-deep-translator
+deep-translator~=1.7.0
 sublib~=1.1.0
 
 
