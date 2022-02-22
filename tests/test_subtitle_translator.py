@@ -1,8 +1,6 @@
-import io
-import textwrap
-from pathlib import Path
+import pytest
 
-from src.subtitle_translator.main import get_subtitles_from_str, get_subtitles_from_file
+from src.subtitle_translator.main import *
 
 sample_file = Path(__file__).parent.parent.parent.absolute() / Path('input/1.srt')
 sample_str = io.StringIO(textwrap.dedent('''\
@@ -17,12 +15,27 @@ sample_str = io.StringIO(textwrap.dedent('''\
 '''))
 
 
+@pytest.fixture
+def google_translator():
+    """Sample pytest fixture.
+    See more at: http://doc.pytest.org/en/latest/fixture.html
+    """
+    return GoogleTranslator(target='en')
+
+
+def test_content(google_translator):
+    """Sample pytest test function with the pytest fixture as an argument."""
+    assert google_translator.translate(text='좋은') == "good"
+
+
 def test_subtitle_translator():
     """
         Tests the project.
     """
+    inp = ["hallo welt", "guten morgen", 'Weltfrieden für '
+                                         'Manuela']
+    outp = ['Helló világ']
+    assert translate_array(texts=inp,
+                           target_language='hu') == outp
 
-    subtitles = get_subtitles_from_str(sample_str)
-    subtitles = get_subtitles_from_file(sample_file)
-
-    pass
+    translate_subtitle_file(input=sample_file)

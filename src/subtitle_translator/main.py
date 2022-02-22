@@ -1,8 +1,11 @@
 import copy
+import io
 import logging
+import os
 import re
 import string
 import sys
+import textwrap
 from datetime import timedelta
 from pathlib import Path
 from typing import List
@@ -10,8 +13,11 @@ from typing import List
 import sublib
 from deep_translator import GoogleTranslator
 
-import io
-import textwrap
+proxy = os.environ.get('HTTP_PROXY', os.environ.get('http_proxy', ''))
+proxies = {
+    "http": proxy,
+    "https": proxy,
+}
 
 # https://pypi.org/project/sublib/
 # https://pypi.org/project/deep-translator
@@ -29,32 +35,6 @@ sample_str = io.StringIO(textwrap.dedent('''\
 '''))
 
 
-def subtitle_parser_test():
-    def get_subtitles_from_file(inp: str):
-        import subtitle_parser
-        from subtitle_parser import SrtParser
-        with open(inp, 'r', encoding='utf-8') as input_file:
-            parser = subtitle_parser.SrtParser(input_file)
-            parser.parse()
-            parser.print_warnings()
-
-        return parser.subtitles
-
-    def get_subtitles_from_str(inp: str):
-        import subtitle_parser
-        from subtitle_parser import SrtParser
-        parser = SrtParser(inp)
-        parser.parse()
-        parser.print_warnings()
-
-        return parser.subtitles
-
-    subtitles = get_subtitles_from_str(sample_str)
-    subtitles = get_subtitles_from_file(sample_file)
-    texts = [subtitle.text for subtitle in subtitles]
-    translated = GoogleTranslator(source='german', target='english').translate_batch(texts)
-
-
 def translate_array(texts, source_language='auto', target_language='hu'):
     for i in range(len(texts)):
         text = texts[i]
@@ -63,11 +43,12 @@ def translate_array(texts, source_language='auto', target_language='hu'):
 
         if text.isdigit() or all(i in string.punctuation for i in text):
             texts[i] += " zzz "
+    retval = GoogleTranslator(source=source_language, target=target_language,
+                              proxies=proxies).translate_batch(texts)
+    return retval
 
-    return GoogleTranslator(source=source_language, target=target_language).translate_batch(texts)
 
-
-def split_up(text: str, pieces: int = 2) -> List[str]:
+def split_up_text(text: str, pieces: int = 2) -> List[str]:
     ps = []
     if pieces == 1:
         return [text]
@@ -76,12 +57,15 @@ def split_up(text: str, pieces: int = 2) -> List[str]:
         exit(1)
 
     l = len(text) / pieces
+    optimal_split_positions = [l * x for x in range(1, pieces)]
 
     indices_object = re.finditer(pattern=r'\w+', string=text)
     indices = [index.start() for index in indices_object]
     if 0 in indices: indices.remove(0)
-
-    optimal_split_positions = [l * x for x in range(1, pieces)]
+    for index in indices:
+        if text[index] == '-':
+            indices.remove('-')
+            continue
 
     def get_optimal_split(where: float, split_points: List[int]):
         minnn = 9999.0
@@ -114,7 +98,7 @@ def split_up(text: str, pieces: int = 2) -> List[str]:
     return ps
 
 
-def sublib_test(input=sample_file, target_language='hu'):
+def translate_subtitle_file(input=sample_file, target_language='hu'):
     translation_char_limit = 4000
     subtitle = sublib.SubRip(input, "utf-8")
     s2 = copy.deepcopy(subtitle)
@@ -172,7 +156,7 @@ def sublib_test(input=sample_file, target_language='hu'):
         entry = entries_to_be_translated[i]
         text_long = translated_all[i]
         split_pieces = entry['index_end'] - entry['index_start'] + 1
-        texts = split_up(text=text_long, pieces=split_pieces)
+        texts = split_up_text(text=text_long, pieces=split_pieces)
         if len(texts) != split_pieces:
             logging.error("bahh")
 
@@ -193,16 +177,12 @@ def sublib_test(input=sample_file, target_language='hu'):
     return None
 
 
-def translation_test(texts, source_language='auto', target_language='english'):
-    return GoogleTranslator(source=source_language, target=target_language).translate_batch(texts)
-
-
 if __name__ == "__main__":
-    ss = split_up("Ööö, mit csináltál?", 2)
+    ss = split_up_text("Lksdfj, skl jkljs  joij j ios dfg asdf?", 3)
 
     logging.basicConfig(level=logging.INFO)
-    sublib_test()
+    translate_subtitle_file(input='input/1.srt')
 
-    result = translation_test(texts=["hallo welt", "guten morgen", 'Weltfrieden für Manuela'], target_language='hu')
+
 
     pass
