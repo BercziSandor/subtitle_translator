@@ -32,9 +32,8 @@ def test_subtitle_translator():
     """
         Tests the project.
     """
-    inp = ["hallo welt", "guten morgen", 'Weltfrieden für '
-                                         'Manuela']
-    outp = ['Helló világ']
+    inp = ["hallo welt", "guten morgen"]
+    outp = ['Helló Világ', "Jó reggelt"]
     assert translate_array(texts=inp,
                            target_language='hu') == outp
 
