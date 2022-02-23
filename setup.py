@@ -1,9 +1,12 @@
+"""
+TODO
+"""
 import sys
 from pathlib import Path
 
-sys.path.append('.')
-
 import setuptools
+
+sys.path.append('.')
 
 __description__ = "Subtitle translator"
 __author__ = "SBerczi"
@@ -19,14 +22,14 @@ README_PATH = Path(__file__).parent.absolute() / Path('README.md')
 try:
     with open(README_PATH, 'r', encoding="UTF-8") as readme:
         __readme__ = readme.read()
-except:
+except OSError as e:
     __readme__ = "Failed to read README.md!"
 
 REQUIREMENTS_PATH = Path(__file__).parent.absolute() / Path('requirements.txt')
 try:
     with open(REQUIREMENTS_PATH, 'r', encoding="UTF-8") as req:
         __requirements__ = [r.strip() for r in req.readlines()]
-except:
+except OSError as e:
     __requirements__ = []
 
 __doc__ = __readme__

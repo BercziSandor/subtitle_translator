@@ -225,4 +225,4 @@ if __name__ == "__main__":
     # 'Weltfrieden für Manuela'], target_language='hu')
 
     translate_subtitle_file(input_file=sample_file)
-
+    
