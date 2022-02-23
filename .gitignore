@@ -1,6 +1,8 @@
 .idea/
 build/
 .tox/
+report/
+.coverage*
 
 
 # TODO: Your editor's folder
