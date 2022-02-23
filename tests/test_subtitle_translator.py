@@ -1,6 +1,6 @@
 import pytest
 
-from src.subtitle_translator.main import *
+from subtitle_translator.main import *
 
 sample_file = Path(__file__).parent.parent.parent.absolute() / Path('input/1.srt')
 sample_str = io.StringIO(textwrap.dedent('''\
