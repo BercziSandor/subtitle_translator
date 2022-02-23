@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/berczisandor/subtitle_translator/badge)](https://www.codefactor.io/repository/github/berczisandor/subtitle_translator)
+
 # Python project template
 
 A template for new Python projects.
