@@ -60,13 +60,15 @@ def split_up(text: str, pieces_count: int = 2) -> List[str]:
 
     def get_optimal_split(where: float, p_split_points: List[int]):
         distance_min = 9999.0
+        min_point = None
         for a_split_point in p_split_points:
             distance = abs(where - a_split_point)
             if distance < distance_min:
                 distance_min = distance
                 min_point = a_split_point
 
-        p_split_points.remove(min_point)
+        if min_point:
+            p_split_points.remove(min_point)
         return min_point, p_split_points
 
     len_of_a_piece = len(text) / pieces_count
@@ -225,4 +227,3 @@ if __name__ == "__main__":
     # 'Weltfrieden für Manuela'], target_language='hu')
 
     translate_subtitle_file(input_file=sample_file)
-    
