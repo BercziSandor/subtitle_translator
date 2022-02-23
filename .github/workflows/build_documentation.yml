@@ -30,8 +30,7 @@ jobs:
 
       - name: Build docs
         run: |
-          chmod +x ./scripts/build_documentation.sh
-          bash ./scripts/build_documentation.sh
+          pdoc -o documentation src/subtitle_translator
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
