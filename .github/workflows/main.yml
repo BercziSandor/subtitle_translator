@@ -13,6 +13,7 @@ env:
   FORCE_COLOR: "1"  # Make tools pretty.
   TOX_TESTENV_PASSENV: FORCE_COLOR
   PYTHON_LATEST: "3.10"
+  PYTHON_VERSIONS: ["3.7", "3.8", "3.9", "3.10"]
 
 
 jobs:
@@ -22,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ${{ env.PYTHON_VERSIONS }}
 
     steps:
       - uses: actions/checkout@v2
@@ -36,7 +37,10 @@ jobs:
           python -m site
           python -m pip install --upgrade pip setuptools wheel
           python -m pip install --upgrade virtualenv tox tox-gh-actions
-      - run: python -m tox
+
+      - name: Run TOX
+        run: |
+        python -m tox
 
       - name: Upload coverage data
         uses: actions/upload-artifact@v2
