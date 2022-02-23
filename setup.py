@@ -51,7 +51,7 @@ setuptools.setup(
 
     url='https://github.com/BercziSandor/subtitle_translator',
 
-    install_requires=[],
+    install_requires=__requirements__,
 
     classifiers=[
         f'Development Status :: {__status__}',
