@@ -13,7 +13,8 @@ env:
   FORCE_COLOR: "1"  # Make tools pretty.
   TOX_TESTENV_PASSENV: FORCE_COLOR
   PYTHON_LATEST: "3.10"
-  PYTHON_VERSIONS: ["3.7", "3.8", "3.9", "3.10"]
+#  PYTHON_VERSIONS: ["3.7", "3.8", "3.9", "3.10"]
+  PYTHON_VERSIONS: ["3.10"]
 
 
 jobs:
