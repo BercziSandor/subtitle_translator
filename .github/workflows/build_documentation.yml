@@ -35,7 +35,7 @@ jobs:
           pdoc -o documentation src/subtitle_translator
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action
+        uses: JamesIves/github-pages-deploy-action@4.2.3
         with:
           branch: documentation
           folder: ./documentation
