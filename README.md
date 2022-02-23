@@ -1,4 +1,5 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/berczisandor/subtitle_translator/badge)](https://www.codefactor.io/repository/github/berczisandor/subtitle_translator)
+[![CodeQL](https://github.com/BercziSandor/subtitle_translator/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/BercziSandor/subtitle_translator/actions/workflows/codeql-analysis.yml)
 
 # Python project template
 
