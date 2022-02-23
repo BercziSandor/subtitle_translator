@@ -1,5 +1,5 @@
 ---
-name: CI
+name: main
 # https://github.com/hynek/structlog/blob/main/.github/workflows/main.yml
 
 on:

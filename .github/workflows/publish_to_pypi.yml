@@ -1,5 +1,5 @@
 ---
-name: Upload Python Package
+name: Upload Python Package - publish_to_pypi.yml
 
 on:
   release:

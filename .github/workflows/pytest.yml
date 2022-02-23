@@ -1,6 +1,6 @@
 ---
 
-name: Test with pyTest
+name: Test with pyTest - pytest.yml
 
 on: ['workflow_dispatch', 'push', 'pull_request']
 
