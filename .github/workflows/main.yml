@@ -25,10 +25,19 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
+      - uses: actions/cache@v2
+        name: Set up caches
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-py${{ matrix.python-version }}
+
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: |
@@ -36,6 +45,7 @@ jobs:
           python -m site
           python -m pip install --upgrade pip setuptools wheel
           python -m pip install --upgrade virtualenv tox tox-gh-actions
+          pip install --upgrade .
 
       - run: python -m tox
 
