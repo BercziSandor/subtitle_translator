@@ -36,7 +36,7 @@ __doc__ = __readme__
 
 setuptools.setup(
     name='subtitle_translator',
-    packages=setuptools.find_packages(exclude=('tests',)),
+    packages=setuptools.find_packages(include=('src',)),
 
     long_description=__readme__,
     long_description_content_type='text/markdown',
