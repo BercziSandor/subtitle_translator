@@ -17,7 +17,7 @@ env:
 
 jobs:
   tests:
-    name: tox on ${{ matrix.python-version }}
+    name: Tox tests on ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -63,6 +63,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/setup-python@v2
         with:
           # Use latest Python, so it understands all syntax.
@@ -85,6 +86,35 @@ jobs:
           name: html-report
           path: htmlcov
         if: ${{ failure() }}
+
+
+  analyze:
+    name: Analyze (CodeQl)
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['python']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v1
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
 
 
   package:
