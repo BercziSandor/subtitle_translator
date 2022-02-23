@@ -4,6 +4,8 @@ name: Build documentation - build_documentation.yml
 
 on:
   workflow_dispatch:
+  push:
+    branches: ["master"]
   release:
     types: [published]
 
