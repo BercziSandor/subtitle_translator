@@ -2,6 +2,8 @@
 
 A template for new Python projects.
 
+
+
 ## Features
 
 - Automatically builds [PDoc](https://pdoc3.github.io/pdoc/) documentation & uploads package to [PyPI](https://pypi.org) on new GitHub release, thanks to GitHub actions;
