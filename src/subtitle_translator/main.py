@@ -18,7 +18,7 @@ from deep_translator import GoogleTranslator
 # https://pypi.org/project/sublib/
 # https://pypi.org/project/deep-translator
 
-sample_file = Path(__file__).parent.parent.parent.absolute() / Path('input/1.srt')
+sample_file = Path(__file__).parent.parent.parent.absolute() / Path('input/1_short.srt')
 sample_str = io.StringIO(textwrap.dedent('''\
     1
     00:00:00,123 --> 00:00:03,456
@@ -31,9 +31,15 @@ sample_str = io.StringIO(textwrap.dedent('''\
 '''))
 
 
-def translate_array(texts, source_language='auto', target_language='hu'):
+def translate_array(texts: List[str], source_language='auto', target_language='hu'):
     """
-        TODO
+    It takes a list of texts and translates them from source language to target language
+
+    :param texts: The list of texts to be translated
+    :type texts: List[str]
+    :param source_language: The language you want to translate from, defaults to auto (optional)
+    :param target_language: The language to translate the text into, defaults to hu (optional)
+    :return: A list of translated texts.
     """
     for i, text in enumerate(texts):
         if not text or not isinstance(text, str) or not text.strip():
@@ -48,7 +54,13 @@ def translate_array(texts, source_language='auto', target_language='hu'):
 
 def split_up(text: str, pieces_count: int = 2) -> List[str]:
     """
-    TODO
+    Given a text and a number of pieces, split the text into pieces
+
+    :param text: The text to split up
+    :type text: str
+    :param pieces_count: The number of pieces to split the text into, defaults to 2
+    :type pieces_count: int (optional)
+    :return: A list of strings.
     """
     pieces = []
 
@@ -59,6 +71,15 @@ def split_up(text: str, pieces_count: int = 2) -> List[str]:
         return [text]
 
     def get_optimal_split(where: float, p_split_points: List[int]):
+        """
+        Get the optimal split point from a list of split points
+
+        :param where: the point where you want to split the data
+        :type where: float
+        :param p_split_points: The list of split points
+        :type p_split_points: List[int]
+        :return: The optimal split point and the list of split points with the optimal split point removed.
+        """
         distance_min = 9999.0
         min_point = None
         for a_split_point in p_split_points:
@@ -88,6 +109,15 @@ def split_up(text: str, pieces_count: int = 2) -> List[str]:
 
     def get_split_points(optimal_split_positions: List[float],
                          p_possible_split_points: List[int] = possible_split_points):
+        """
+        Given a list of optimal split positions, return a list of the corresponding split points
+
+        :param optimal_split_positions: The list of optimal split positions
+        :type optimal_split_positions: List[float]
+        :param p_possible_split_points: List[int] = possible_split_points
+        :type p_possible_split_points: List[int]
+        :return: The list of optimal split points.
+        """
         split_points = []
         for an_optimal_position in optimal_split_positions:
             a_split_point, p_possible_split_points = get_optimal_split(where=an_optimal_position,
@@ -109,7 +139,11 @@ def split_up(text: str, pieces_count: int = 2) -> List[str]:
 
 def translate_subtitle_file(input_file=sample_file, target_language='hu'):
     """
-    TODO
+    It takes a subtitle file, splits it up into sentences, translates them, and then puts them back together
+
+    :param input_file: The subtitle file to be translated
+    :param target_language: The language you want the text to be translated to, defaults to hu (optional)
+    :return: The lines of the translated file.
     """
     translation_char_limit = 4000  # 4000
     subtitle = sublib.SubRip(input_file, "utf-8")
@@ -199,7 +233,7 @@ def translate_subtitle_file(input_file=sample_file, target_language='hu'):
             general[iii][2] = texts[i2]
         else:
             logging.error("Index overrun.")
-        sys.exit(1)
+            sys.exit(1)
 
     logging.info("# Phase 4: Split up lines")
     for i, entry in enumerate(general):
@@ -212,10 +246,12 @@ def translate_subtitle_file(input_file=sample_file, target_language='hu'):
     empty_subtitle = sublib.SubRip()
     empty_subtitle.set_from_general_format(general)
     lines = empty_subtitle.content
-    with open(str(input_file).replace('.srt', '.out.srt'), 'w', encoding='utf-8') as out:
+    output_name = str(input_file).replace('.srt', '.out.srt')
+    logging.info(f"   Writing output to {output_name}")
+    with open(output_name, 'w', encoding='utf-8') as out:
         out.writelines(lines)
 
-    return None
+    return lines
 
 
 if __name__ == "__main__":
