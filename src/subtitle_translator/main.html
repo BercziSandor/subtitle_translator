@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 10.0.1"/>
+    <meta name="generator" content="pdoc 10.0.2"/>
     <title>src.subtitle_translator.main API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
@@ -80,7 +80,7 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 <span class="c1"># https://pypi.org/project/sublib/</span>
 <span class="c1"># https://pypi.org/project/deep-translator</span>
 
-<span class="n">sample_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;input/1.srt&#39;</span><span class="p">)</span>
+<span class="n">sample_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;input/1_short.srt&#39;</span><span class="p">)</span>
 <span class="n">sample_str</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
 <span class="s1">    1</span>
 <span class="s1">    00:00:00,123 --&gt; 00:00:03,456</span>
@@ -93,9 +93,15 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 <span class="s1">&#39;&#39;&#39;</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">translate_array</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">source_language</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s1">&#39;hu&#39;</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">translate_array</span><span class="p">(</span><span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">source_language</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s1">&#39;hu&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        TODO</span>
+<span class="sd">    It takes a list of texts and translates them from source language to target language</span>
+
+<span class="sd">    :param texts: The list of texts to be translated</span>
+<span class="sd">    :type texts: List[str]</span>
+<span class="sd">    :param source_language: The language you want to translate from, defaults to auto (optional)</span>
+<span class="sd">    :param target_language: The language to translate the text into, defaults to hu (optional)</span>
+<span class="sd">    :return: A list of translated texts.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">texts</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
@@ -110,7 +116,13 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 
 <span class="k">def</span> <span class="nf">split_up</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pieces_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    TODO</span>
+<span class="sd">    Given a text and a number of pieces, split the text into pieces</span>
+
+<span class="sd">    :param text: The text to split up</span>
+<span class="sd">    :type text: str</span>
+<span class="sd">    :param pieces_count: The number of pieces to split the text into, defaults to 2</span>
+<span class="sd">    :type pieces_count: int (optional)</span>
+<span class="sd">    :return: A list of strings.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">pieces</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -121,6 +133,15 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
         <span class="k">return</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">get_optimal_split</span><span class="p">(</span><span class="n">where</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p_split_points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the optimal split point from a list of split points</span>
+
+<span class="sd">        :param where: the point where you want to split the data</span>
+<span class="sd">        :type where: float</span>
+<span class="sd">        :param p_split_points: The list of split points</span>
+<span class="sd">        :type p_split_points: List[int]</span>
+<span class="sd">        :return: The optimal split point and the list of split points with the optimal split point removed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">distance_min</span> <span class="o">=</span> <span class="mf">9999.0</span>
         <span class="n">min_point</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">for</span> <span class="n">a_split_point</span> <span class="ow">in</span> <span class="n">p_split_points</span><span class="p">:</span>
@@ -150,6 +171,15 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 
     <span class="k">def</span> <span class="nf">get_split_points</span><span class="p">(</span><span class="n">optimal_split_positions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
                          <span class="n">p_possible_split_points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">possible_split_points</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a list of optimal split positions, return a list of the corresponding split points</span>
+
+<span class="sd">        :param optimal_split_positions: The list of optimal split positions</span>
+<span class="sd">        :type optimal_split_positions: List[float]</span>
+<span class="sd">        :param p_possible_split_points: List[int] = possible_split_points</span>
+<span class="sd">        :type p_possible_split_points: List[int]</span>
+<span class="sd">        :return: The list of optimal split points.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">split_points</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">an_optimal_position</span> <span class="ow">in</span> <span class="n">optimal_split_positions</span><span class="p">:</span>
             <span class="n">a_split_point</span><span class="p">,</span> <span class="n">p_possible_split_points</span> <span class="o">=</span> <span class="n">get_optimal_split</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="n">an_optimal_position</span><span class="p">,</span>
@@ -171,7 +201,11 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 
 <span class="k">def</span> <span class="nf">translate_subtitle_file</span><span class="p">(</span><span class="n">input_file</span><span class="o">=</span><span class="n">sample_file</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s1">&#39;hu&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    TODO</span>
+<span class="sd">    It takes a subtitle file, splits it up into sentences, translates them, and then puts them back together</span>
+
+<span class="sd">    :param input_file: The subtitle file to be translated</span>
+<span class="sd">    :param target_language: The language you want the text to be translated to, defaults to hu (optional)</span>
+<span class="sd">    :return: The lines of the translated file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">translation_char_limit</span> <span class="o">=</span> <span class="mi">4000</span>  <span class="c1"># 4000</span>
     <span class="n">subtitle</span> <span class="o">=</span> <span class="n">sublib</span><span class="o">.</span><span class="n">SubRip</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
@@ -261,7 +295,7 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
             <span class="n">general</span><span class="p">[</span><span class="n">iii</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">texts</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Index overrun.&quot;</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;# Phase 4: Split up lines&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">general</span><span class="p">):</span>
@@ -274,10 +308,12 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
     <span class="n">empty_subtitle</span> <span class="o">=</span> <span class="n">sublib</span><span class="o">.</span><span class="n">SubRip</span><span class="p">()</span>
     <span class="n">empty_subtitle</span><span class="o">.</span><span class="n">set_from_general_format</span><span class="p">(</span><span class="n">general</span><span class="p">)</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">empty_subtitle</span><span class="o">.</span><span class="n">content</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.srt&#39;</span><span class="p">,</span> <span class="s1">&#39;.out.srt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+    <span class="n">output_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.srt&#39;</span><span class="p">,</span> <span class="s1">&#39;.out.srt&#39;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Writing output to </span><span class="si">{</span><span class="n">output_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
         <span class="n">out</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">lines</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -299,14 +335,20 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 
         
             <span class="def">def</span>
-            <span class="name">translate_array</span><span class="signature">(texts, source_language=&#39;auto&#39;, target_language=&#39;hu&#39;)</span>:
+            <span class="name">translate_array</span><span class="signature">(texts: List[str], source_language=&#39;auto&#39;, target_language=&#39;hu&#39;)</span>:
     </div>
 
             <details>
             <summary>View Source</summary>
-            <div class="pdoc-code codehilite"><pre><span></span><span class="k">def</span> <span class="nf">translate_array</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">source_language</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s1">&#39;hu&#39;</span><span class="p">):</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span class="k">def</span> <span class="nf">translate_array</span><span class="p">(</span><span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">source_language</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s1">&#39;hu&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        TODO</span>
+<span class="sd">    It takes a list of texts and translates them from source language to target language</span>
+
+<span class="sd">    :param texts: The list of texts to be translated</span>
+<span class="sd">    :type texts: List[str]</span>
+<span class="sd">    :param source_language: The language you want to translate from, defaults to auto (optional)</span>
+<span class="sd">    :param target_language: The language to translate the text into, defaults to hu (optional)</span>
+<span class="sd">    :return: A list of translated texts.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">texts</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
@@ -321,7 +363,13 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 
         </details>
 
-            <div class="docstring"><p>TODO</p>
+            <div class="docstring"><p>It takes a list of texts and translates them from source language to target language</p>
+
+<p>:param texts: The list of texts to be translated
+:type texts: List[str]
+:param source_language: The language you want to translate from, defaults to auto (optional)
+:param target_language: The language to translate the text into, defaults to hu (optional)
+:return: A list of translated texts.</p>
 </div>
 
 
@@ -338,7 +386,13 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
             <summary>View Source</summary>
             <div class="pdoc-code codehilite"><pre><span></span><span class="k">def</span> <span class="nf">split_up</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pieces_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    TODO</span>
+<span class="sd">    Given a text and a number of pieces, split the text into pieces</span>
+
+<span class="sd">    :param text: The text to split up</span>
+<span class="sd">    :type text: str</span>
+<span class="sd">    :param pieces_count: The number of pieces to split the text into, defaults to 2</span>
+<span class="sd">    :type pieces_count: int (optional)</span>
+<span class="sd">    :return: A list of strings.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">pieces</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -349,6 +403,15 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
         <span class="k">return</span> <span class="p">[</span><span class="n">text</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">get_optimal_split</span><span class="p">(</span><span class="n">where</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p_split_points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the optimal split point from a list of split points</span>
+
+<span class="sd">        :param where: the point where you want to split the data</span>
+<span class="sd">        :type where: float</span>
+<span class="sd">        :param p_split_points: The list of split points</span>
+<span class="sd">        :type p_split_points: List[int]</span>
+<span class="sd">        :return: The optimal split point and the list of split points with the optimal split point removed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">distance_min</span> <span class="o">=</span> <span class="mf">9999.0</span>
         <span class="n">min_point</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">for</span> <span class="n">a_split_point</span> <span class="ow">in</span> <span class="n">p_split_points</span><span class="p">:</span>
@@ -378,6 +441,15 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 
     <span class="k">def</span> <span class="nf">get_split_points</span><span class="p">(</span><span class="n">optimal_split_positions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
                          <span class="n">p_possible_split_points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">possible_split_points</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a list of optimal split positions, return a list of the corresponding split points</span>
+
+<span class="sd">        :param optimal_split_positions: The list of optimal split positions</span>
+<span class="sd">        :type optimal_split_positions: List[float]</span>
+<span class="sd">        :param p_possible_split_points: List[int] = possible_split_points</span>
+<span class="sd">        :type p_possible_split_points: List[int]</span>
+<span class="sd">        :return: The list of optimal split points.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">split_points</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">an_optimal_position</span> <span class="ow">in</span> <span class="n">optimal_split_positions</span><span class="p">:</span>
             <span class="n">a_split_point</span><span class="p">,</span> <span class="n">p_possible_split_points</span> <span class="o">=</span> <span class="n">get_optimal_split</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="n">an_optimal_position</span><span class="p">,</span>
@@ -399,7 +471,13 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
 
         </details>
 
-            <div class="docstring"><p>TODO</p>
+            <div class="docstring"><p>Given a text and a number of pieces, split the text into pieces</p>
+
+<p>:param text: The text to split up
+:type text: str
+:param pieces_count: The number of pieces to split the text into, defaults to 2
+:type pieces_count: int (optional)
+:return: A list of strings.</p>
 </div>
 
 
@@ -410,7 +488,7 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
         
             <span class="def">def</span>
             <span class="name">translate_subtitle_file</span><span class="signature">(
-    input_file=PosixPath(&#39;/home/runner/work/subtitle_translator/subtitle_translator/input/1.srt&#39;),
+    input_file=PosixPath(&#39;/home/runner/work/subtitle_translator/subtitle_translator/input/1_short.srt&#39;),
     target_language=&#39;hu&#39;
 )</span>:
     </div>
@@ -419,7 +497,11 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
             <summary>View Source</summary>
             <div class="pdoc-code codehilite"><pre><span></span><span class="k">def</span> <span class="nf">translate_subtitle_file</span><span class="p">(</span><span class="n">input_file</span><span class="o">=</span><span class="n">sample_file</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s1">&#39;hu&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    TODO</span>
+<span class="sd">    It takes a subtitle file, splits it up into sentences, translates them, and then puts them back together</span>
+
+<span class="sd">    :param input_file: The subtitle file to be translated</span>
+<span class="sd">    :param target_language: The language you want the text to be translated to, defaults to hu (optional)</span>
+<span class="sd">    :return: The lines of the translated file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">translation_char_limit</span> <span class="o">=</span> <span class="mi">4000</span>  <span class="c1"># 4000</span>
     <span class="n">subtitle</span> <span class="o">=</span> <span class="n">sublib</span><span class="o">.</span><span class="n">SubRip</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
@@ -509,7 +591,7 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
             <span class="n">general</span><span class="p">[</span><span class="n">iii</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">texts</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Index overrun.&quot;</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;# Phase 4: Split up lines&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">general</span><span class="p">):</span>
@@ -522,15 +604,21 @@ src<wbr>.<a href="./../subtitle_translator.html">subtitle_translator</a><wbr>.ma
     <span class="n">empty_subtitle</span> <span class="o">=</span> <span class="n">sublib</span><span class="o">.</span><span class="n">SubRip</span><span class="p">()</span>
     <span class="n">empty_subtitle</span><span class="o">.</span><span class="n">set_from_general_format</span><span class="p">(</span><span class="n">general</span><span class="p">)</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">empty_subtitle</span><span class="o">.</span><span class="n">content</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.srt&#39;</span><span class="p">,</span> <span class="s1">&#39;.out.srt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+    <span class="n">output_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.srt&#39;</span><span class="p">,</span> <span class="s1">&#39;.out.srt&#39;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Writing output to </span><span class="si">{</span><span class="n">output_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
         <span class="n">out</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">lines</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>TODO</p>
+            <div class="docstring"><p>It takes a subtitle file, splits it up into sentences, translates them, and then puts them back together</p>
+
+<p>:param input_file: The subtitle file to be translated
+:param target_language: The language you want the text to be translated to, defaults to hu (optional)
+:return: The lines of the translated file.</p>
 </div>
 
 
