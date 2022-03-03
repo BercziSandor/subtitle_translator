@@ -33,7 +33,7 @@ jobs:
 
       - name: Build docs
         run: |
-          pdoc -o documentation src/subtitle_translator
+          pdoc -o docs src/subtitle_translator
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
